@@ -1,0 +1,18 @@
+{
+// Configure your Run and Preview buttons here.
+
+// Run button configuration
+  "commands": {
+      "Start nginx": "parts start nginx",
+      "Restart nginx": "parts restart nginx",
+       "Node version": "node --version"
+  },
+
+// Preview button configuration
+  "preview": {
+        "Project Index (static)": "https://{{domain}}/{{index}}",
+        "Current File (static)": "https://{{domain}}/{{filepath}}",
+        "MejorFront URL": "http://{{domain}}:3000/mejorfront/index.html",
+        "Herando de Toluca URL": "http://{{domain}}:3000/heraldodetoluca/index.html"
+  }
+}
