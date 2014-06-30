@@ -1,10 +1,303 @@
 @import 'normalize' 
+@import 'fonts'
 
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	-ms-transition arguments
+	-o-transition arguments
+	transition arguments
 
+box-sizing()
+	-webkit-box-sizing arguments
+	-moz-box-sizing arguments
+	box-sizing arguments
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	-ms-border-radius arguments
+	-o-border-radius arguments
+	border-radius arguments
+
+box-shadow()
+	-webkit-box-shadow arguments
+	-moz-box-shadow arguments
+	-ms-box-shadow arguments
+	-o-box-shadow arguments
+	box-shadow arguments
+
+transform()
+	-webkit-transform arguments
+	-moz-transform arguments
+	-ms-transform arguments
+	-o-transform arguments
+	transform arguments
+
+animation()
+	-webkit-animation arguments
+	-moz-animation arguments
+	-ms-animation arguments
+	-o-animation arguments
+	animation arguments
+
+opacity(n)
+	opacity n
+	if support-for-ie
+		filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
+
+a
+	text-decoration none
+	
 body
 	font-size 16px 
 
+nav 
+	height 30px
+
+	
+#logo
+	left 0px
+	margin 0
+	position absolute
+	text-align center
+	top 0px
+	width 100%
+	z-index 1
+
+#logo-redes-sociales
+	height 130px
+	position relative
+	width 100%
+	& > .redes-sociales
+		position absolute
+		top 20px
+		right 0px
+	& > .buscador
+		position absolute
+		top 50px
+		right 0px
+	& > .fecha
+		bottom 0px
+		font-size 14px
+		font-weight bold
+		position absolute
+		right 0px
+
+.columna-2
+.columna-1
+	display inline-block
+	vertical-align top
+	box-sizing border-box
+
+.columna-2
+	width 706px
+
+.columna-1
+	width 316px
+	padding-left 0px
+
 
 .container
-	max-width 1028px 
+	border 1px solid gray
+	box-sizing border-box
+	margin 0 auto
+	max-width 1028px
+	& > .header
+		padding 1em 1.35em
+
+.item-noticia
+	display inline-block
+	vertical-align top
+	width 222px
+	margin-left 16px
+	& figure
+		margin 0
+		padding 0 
+	& img
+		width 100%
+	& h3.titulo
+		margin 5px 0px
+		font-size 14px
+		color blue
+		font-weight normal
+		&:first-letter
+			text-transform uppercase
+	& p
+		font-size 12px
+		color black
+		margin 0 0 10px
+	&:first-child
+		margin-left 0px
+
+.item-noticia-lg
+	width 302px	
+	&:first-child
+		margin-left 16px
+		
+
+.list-noticias
+	border-bottom 1px solid blue
+	margin-top 5px
+	padding-bottom 16px
+	& h2.titulo
+		background black
+		border-bottom 10px solid gray
+		color white
+		display inline-block
+		font-size 16px
+		font-weight bold
+		margin 5px 0px
+		min-width 300px
+		padding 9px 10px 5px 10px
+		text-transform uppercase
+		&.azul
+			border-bottom 10px solid blue
+		&.rojo
+			border-bottom 10px solid red
+
+
+
+.navegador
+	& ul
+		margin 0
+		padding 0
+		list-style none
+	& li
+		display inline-block
+		vertical-align top
+		& > a
+			color black
+	&.secundario
+		font-size 12px
+		font-weight bold
+		height 20px
+		text-align right
+		text-transform uppercase
+		& > ul li
+			margin-left 1em
+	&.principal
+		border-bottom 3px solid blue
+		border-top 1px solid blue
+		font-size 16px
+		text-align center
+		z-index -1
+		& > ul li
+			border-left 1px solid blue
+			display block
+			float left
+			padding 5px
+			position relative
+			& a
+				color black
+				display inline-block
+				font-size 16px
+				text-transform uppercase
+				text-align center
+				&:hover
+				&.active
+					color blue
+			&:first-child
+				border-left none
+				padding-left 3px
+			&:last-child
+				padding-right 0px
+		& ul.submenu
+			top 27px
+			display none
+			margin 0px
+			opacity 0
+			padding-left 0px
+			padding-top 10px
+			position absolute
+			right 0px
+			transition all 1s ease
+			min-width 100px
+			z-index 9999
+			& > li
+				float left
+				background blue
+				padding 10px
+				width 100%
+				box-sizing border-box
+				border-bottom 1px solid aqua
+				& a
+					color white
+					display block
+					text-align left
+					text-transform uppercase
+			& > li:last-child
+				border-bottom none
+		& ul.submenu > li:first-child > a:before
+			bottom 100%
+			right 10px
+			border solid transparent
+			content " "
+			height 0
+			width 0
+			position absolute
+			border-bottom-color blue
+			border-width 5px
+		& > ul.menu li:hover ul.submenu
+			display block
+			opacity 1
+.publicidad
+	padding-bottom 1em
+	.item-publicidad
+		display inline-block	 
+		vertical-align top
+		&:last-child
+			margin-left 1.3em
+
+
+.publicacion
+	border-top 1px solid blue
+	border-bottom 1px solid blue
+	padding-bottom 1em
+	& .titulo
+		margin 5px 0px
+		box-sizing border-box
+		width 100%
+		padding-left 1em
+		font-weight normal
+		text-transform capitalize
+	& .contenido
+		position relative
+	& .ver-nota
+		padding 10px 16px
+		color white
+		background blue
+		border none
+		
+
+
+
+.redes-sociales span
+	display inline-block
+	vertical-align top
+	font-size 22px
+	margin-left .2em
+	&.twitter
+		color aqua
+	&.facebook
+		color blue
+	&.youtube
+		color red
+	&.flickr
+		color red
+
+
+// clases OOCSS
+
+.padding
+	padding 16px	
 	
+.padding-trb
+	padding 16px 16px 16px 0px
+
+.padding-tl
+	padding 10px 0px 0px 16px
+	
+.cargador
+	text-align right
+	margin 0px	
