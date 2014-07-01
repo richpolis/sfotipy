@@ -162,29 +162,26 @@
 					cargar mas notas <span class="cargar-mas-notas azul"></span>
 				</p>
 			</article>
-			<article class="list-videos">
+			<article class="list-noticias list-videos">
 				<header>
-					<h2 class="titulo heraldo-tv">
+					<h2 class="titulo rojo">
 						heraldo tv
 					</h2>
-					<ul class="lista categorias">
-						<li class="item active"><a href="#">lo mas visto en la red</a></li>
-						<li class="item"><a href="#">otra categoria</a></li>
-						<li class="item"><a href="#">una categoria mas</a></li>
-					</ul>
+					<select name="cbCategoriasVideos" id="cbCategoriasVideos">
+						<option value="Categoria1">Categoria 1</option>
+						<option value="Categoria2">Categoria 2</option>
+						<option value="Categoria3">Categoria 3</option>
+					</select>
 				</header>
 				<div class="controles-videos">
-					<span class="control derecho">anterior</span>
-					<span class="control izquierdo">siguiente</span>	
+					<span class="control anterior">anterior</span>
+					<span class="control siguiente">siguiente</span>	
 				</div>
 				<section class="videos">
-					<article class="item-video">
+					<article class="item-noticia item-video">
 						<figure class="thumbnail-mediana">
 							<img src="http://placehold.it/191x121" alt="">
 						</figure>
-						<h3 class="titulo">
-							titulo de la noticia
-						</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas labore expedita atque, praesentium doloremque repudiandae dolore. Omnis voluptatem eveniet, consequatur dolore quos assumenda ipsum cumque explicabo, quasi, non pariatur! Aliquam!
 						</p>
@@ -194,13 +191,10 @@
 							<span class="facebook"></span>
 						</div>
 					</article>
-					<article class="item-video">
+					<article class="item-noticia item-video">
 						<figure class="thumbnail-mediana">
 							<img src="http://placehold.it/191x121" alt="">
 						</figure>
-						<h3 class="titulo">
-							titulo de la noticia
-						</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas labore expedita atque, praesentium doloremque repudiandae dolore. Omnis voluptatem eveniet, consequatur dolore quos assumenda ipsum cumque explicabo, quasi, non pariatur! Aliquam!
 						</p>
@@ -210,13 +204,10 @@
 							<span class="facebook"></span>
 						</div>
 					</article>
-					<article class="item-video">
+					<article class="item-noticia item-video">
 						<figure class="thumbnail-mediana">
 							<img src="http://placehold.it/191x121" alt="">
 						</figure>
-						<h3 class="titulo">
-							titulo de la noticia
-						</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas labore expedita atque, praesentium doloremque repudiandae dolore. Omnis voluptatem eveniet, consequatur dolore quos assumenda ipsum cumque explicabo, quasi, non pariatur! Aliquam!
 						</p>
@@ -235,8 +226,8 @@
 			</div>
 			<article id="lomasvisto-comentado">
 				<header>
-					<h3 class="tituloTabs">
-						lo más <span class="visto">visto</span> <span class="comentado">comentado</span>
+					<h3 class="titulo-tabs">
+						lo más <span data-tab="lomas-visto" class="tab tab-visto active">visto</span> <span data-tab="lomas-comentado" class="tab tab-comentado">comentado</span>
 					</h3>
 				</header>
 				<select name="cbLoMasVisto" id="cbLoMasVisto">
@@ -244,7 +235,7 @@
 					<option value="categoria2">Categoria 2</option>
 					<option value="categoria3">Categoria 3</option>
 				</select>
-				<div class="contenido lomas-visto">
+				<div class="contenido lomas lomas-visto">
 					<ul>
 						<li class="item">
 							<div class="item-lomas-visto">
@@ -259,9 +250,9 @@
 							<div class="item-lomas-visto">
 								<div class="numero">2</div>
 								<div class="contenido">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum necessitatibus magni, qui iste, perspiciatis error quibusdam ipsa voluptates doloremque mollitia maxime eius autem similique dolores recusandae perferendis dolore accusamus quam?</div>
-							<figure class="thumbnail-mini">
-								<img src="http://placehold.it/90x60" alt=""/>
-							</figure>
+								<figure class="thumbnail-mini">
+									<img src="http://placehold.it/90x60" alt=""/>
+								</figure>
 							</div>
 						</li>
 						<li class="item">
@@ -293,7 +284,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="contenido lomas-comentado">
+				<div class="contenido lomas lomas-comentado">
 					<ul>
 						<li class="item-lomas-comentado">
 							<div class="numero">1</div>
@@ -340,7 +331,7 @@
 				<div class="contenedor-galeria">
 					<span class="control izquierdo"></span>
 					<span class="control derecho"></span>
-					<ul class="galeria">
+					<ul class="galeria-pdf">
 						<li class="item edicion-pdf">
 							<figure class="imagen-archivo">
 								<img src="http://placehold.it/60x110" alt="">
@@ -725,6 +716,19 @@
 	<script>
 		$(document).ready(function(){
 		  $('.galeria').bxSlider();
+
+		  $(".tab").on("click",function(){
+		  	$(".tab").removeClass("active");
+		  	$(this).addClass("active");
+		  	var tabClass = $(this).data('tab');
+		  	$(".lomas").fadeOut("fast");
+		  	$("."+tabClass).fadeIn("fast");
+		  });
+
+
+		  $(".tab-visto").click();
+
+
 		});
 	</script>
 </body>

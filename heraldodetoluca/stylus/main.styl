@@ -46,6 +46,9 @@ opacity(n)
 	if support-for-ie
 		filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
 
+color_azul = blue
+color_azul_claro = aqua
+
 a
 	text-decoration none
 	
@@ -106,6 +109,37 @@ nav
 	& > .header
 		padding 1em 1.35em
 
+.controles-videos
+	height 30px
+	margin 8px 0px 12px
+	position relative
+	& .siguiente
+	& .anterior
+		background red 
+		box-sizing border-box
+		color white
+		display block
+		height 30px
+		line-height 30px
+		padding 0px 20px
+		width 150px
+		cursor pointer
+		&:first-letter
+			text-transform uppercase
+	& .siguiente
+		text-align left
+	& .anterior 
+		text-align right
+	
+.control
+	position absolute
+	
+.siguiente
+	right 0px
+
+.anterior
+	left 0px
+
 .item-noticia
 	display inline-block
 	vertical-align top
@@ -119,7 +153,7 @@ nav
 	& h3.titulo
 		margin 5px 0px
 		font-size 14px
-		color blue
+		color color_azul
 		font-weight normal
 		&:first-letter
 			text-transform uppercase
@@ -135,9 +169,14 @@ nav
 	&:first-child
 		margin-left 16px
 		
+.item-video
+	width 191px
+	&:first-child
+		margin-left 16px		
+		
 
 .list-noticias
-	border-bottom 1px solid blue
+	border-bottom 1px solid color_azul
 	margin-top 5px
 	padding-bottom 16px
 	& h2.titulo
@@ -152,10 +191,41 @@ nav
 		padding 9px 10px 5px 10px
 		text-transform uppercase
 		&.azul
-			border-bottom 10px solid blue
+			border-bottom 10px solid color_azul
 		&.rojo
 			border-bottom 10px solid red
 
+
+.lomas
+	width 300px
+	display none
+	overflow hidden
+	& ul
+		padding 0
+		margin 0
+	& li
+		list-style none
+		border-bottom 1px dotted black
+		padding-bottom 8px
+		padding-top 8px
+		font-size 12px
+		float left
+	& .numero
+	& .contenido
+	& figure
+		display inline-block
+		vertical-align middle
+	& .numero 
+		width 15px
+		vertical-align middle
+		color color_azul
+		font-weight bold
+	& .contenido
+		width 179px
+	& figure
+		margin 0
+		padding 5px
+		width 90px
 
 
 .navegador
@@ -177,13 +247,13 @@ nav
 		& > ul li
 			margin-left 1em
 	&.principal
-		border-bottom 3px solid blue
-		border-top 1px solid blue
+		border-bottom 3px solid color_azul
+		border-top 1px solid color_azul
 		font-size 16px
 		text-align center
 		z-index -1
 		& > ul li
-			border-left 1px solid blue
+			border-left 1px solid color_azul
 			display block
 			float left
 			padding 5px
@@ -191,12 +261,13 @@ nav
 			& a
 				color black
 				display inline-block
-				font-size 16px
+				font-size 15px
 				text-transform uppercase
 				text-align center
+				font-family 'Verdana'
 				&:hover
 				&.active
-					color blue
+					color color_azul
 			&:first-child
 				border-left none
 				padding-left 3px
@@ -216,11 +287,11 @@ nav
 			z-index 9999
 			& > li
 				float left
-				background blue
+				background color_azul
 				padding 10px
 				width 100%
 				box-sizing border-box
-				border-bottom 1px solid aqua
+				border-bottom 1px solid color_azul_claro
 				& a
 					color white
 					display block
@@ -236,11 +307,35 @@ nav
 			height 0
 			width 0
 			position absolute
-			border-bottom-color blue
+			border-bottom-color color_azul
 			border-width 5px
 		& > ul.menu li:hover ul.submenu
 			display block
 			opacity 1
+
+.titulo-tabs
+	font-size 16px 
+	text-transform uppercase
+	line-height 30px
+	vertical-align middle
+	overflow hidden
+	& .tab
+		background color_azul
+		border-bottom 3px solid color_azul
+		color white
+		height 30px
+		padding 5px
+		cursor pointer
+		display block
+		float right
+		min-width 50px
+		box-sizing border-box
+		&.active
+			background white
+			color color_azul
+		
+		
+			
 .publicidad
 	padding-bottom 1em
 	.item-publicidad
@@ -251,8 +346,8 @@ nav
 
 
 .publicacion
-	border-top 1px solid blue
-	border-bottom 1px solid blue
+	border-top 1px solid color_azul
+	border-bottom 1px solid color_azul
 	padding-bottom 1em
 	& .titulo
 		margin 5px 0px
@@ -266,7 +361,7 @@ nav
 	& .ver-nota
 		padding 10px 16px
 		color white
-		background blue
+		background color_azul
 		border none
 		
 
@@ -278,13 +373,15 @@ nav
 	font-size 22px
 	margin-left .2em
 	&.twitter
-		color aqua
+		color color_azul_claro
 	&.facebook
-		color blue
+		color color_azul
 	&.youtube
 		color red
 	&.flickr
 		color red
+
+
 
 
 // clases OOCSS
