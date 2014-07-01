@@ -75,14 +75,24 @@ img
 .padding-tb
 	padding 1em 0 
 	
+.round
+	border-radius 50%
+	overflow hidden
 
 .center-block
 	margin 0 auto
-	
+
+.wrap
+	width 1000px	
 
 .right-text
 	text-align right
 	
+.left
+	float left
+	
+.right 
+	float right
 
 .center-text
 	text-align center
@@ -156,4 +166,50 @@ img
 	&.small
 		width 20em
 		
+.input
+	border 1px solid gris_claro
+	height 2.5em
+	border-radius 5px
+	padding 0 1em 0 2em
+	
 
+@media screen and (min-width: 480px)
+	.song
+		&:ntd-child(even)
+			margin-right 1em
+	.image
+		img
+			width 100%
+			height auto
+	.playing
+		&.medium
+			width auto
+			
+@media screen and (min-width: 1000px)
+	.button-menu
+		display none
+	.header
+		height auto
+		.title
+			display none
+	.isotipo
+		width 122px
+	.logo
+		overflow hidden
+		padding 1.3em 0
+	.avatar
+		height 38px
+		width 38px
+	.username
+		color gris_claro
+		margin-left .5em
+		position relative
+		top 9px
+		&:after
+			border-left 7px solid transparent
+			border-right 7px solid transparent
+			border-top 9px solid gris_claro
+			content ""
+			display inline-block
+			margin-left .4em
+			
