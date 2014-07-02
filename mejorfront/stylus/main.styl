@@ -6,6 +6,7 @@
 
 gris_oscuro = #333333
 gris_claro = #818181
+gris_mas_claro = #f0f0f0
 rojo = #BD255B 
 
 
@@ -22,6 +23,11 @@ figure
 img
 	vertical-align top
 	
+ul
+	margin 0
+	padding 0
+
+
 
 //buttons
 .button-menu
@@ -168,10 +174,22 @@ img
 		
 .input
 	border 1px solid gris_claro
-	height 2.5em
 	border-radius 5px
+	height 2.5em
 	padding 0 1em 0 2em
 	
+.search-icon
+	color gris_claro
+	left .5em
+	position absolute
+	top .8em
+	
+.close-icon
+	color gris_claro
+	font-size 1.2em
+	position absolute
+	right .5em
+	top .5em
 
 @media screen and (min-width: 480px)
 	.song
@@ -186,15 +204,36 @@ img
 			width auto
 			
 @media screen and (min-width: 1000px)
-	.button-menu
-		display none
+	body
+		background gris_mas_claro
+	.menu
+		background gris_mas_claro
+		display block
+		overflow hidden
+		border-top 1px solid gris_oscuro
+		.item
+			float left
+			list-style none
+			a
+				color gris_oscuro
+				display block
+				padding 1em
+				text-decoration none
+				text-transform uppercase
+				border-top 5px solid gris_mas_claro
+				&:hover
+				&.active
+					border-top 5px solid gris_oscuro
 	.header
 		height auto
+		& a.button-menu
+			display none
 		.title
 			display none
 	.isotipo
 		width 122px
 	.logo
+		background white
 		overflow hidden
 		padding 1.3em 0
 	.avatar

@@ -226,16 +226,16 @@
 			</div>
 			<article id="lomasvisto-comentado">
 				<header>
-					<h3 class="titulo-tabs">
-						lo más <span data-tab="lomas-visto" class="tab tab-visto active">visto</span> <span data-tab="lomas-comentado" class="tab tab-comentado">comentado</span>
-					</h3>
+					<p class="titulo-tabs">
+						lo más  <span data-tab="lomas-comentado" class="tab tab-comentado">comentado</span><span data-tab="lomas-visto" class="tab tab-visto active">visto</span>
+					</p>
 				</header>
-				<select name="cbLoMasVisto" id="cbLoMasVisto">
-					<option value="categoria1">Categoria 1</option>
-					<option value="categoria2">Categoria 2</option>
-					<option value="categoria3">Categoria 3</option>
-				</select>
 				<div class="contenido lomas lomas-visto">
+					<select name="cbLoMasVisto" id="cbLoMasVisto" class="control-lomas">
+						<option value="categoria1">lo mas visto</option>
+						<option value="categoria2">Categoria 2</option>
+						<option value="categoria3">Categoria 3</option>
+					</select>
 					<ul>
 						<li class="item">
 							<div class="item-lomas-visto">
@@ -285,6 +285,11 @@
 					</ul>
 				</div>
 				<div class="contenido lomas lomas-comentado">
+					<select name="cbLoMasComentado" id="cbLoMasComentado"  class="control-lomas">
+						<option value="categoria1">Lo mas comentado</option>
+						<option value="categoria2">Categoria 2</option>
+						<option value="categoria3">Categoria 3</option>
+					</select>
 					<ul>
 						<li class="item-lomas-comentado">
 							<div class="numero">1</div>
@@ -326,32 +331,38 @@
 			</article>
 			<article id="ediciones-pdf">
 				<header class="ediciones-pdf">
-					ediciones pdf
+					<h3 class="titulo">ediciones pdf</h3>
 				</header>
 				<div class="contenedor-galeria">
-					<span class="control izquierdo"></span>
-					<span class="control derecho"></span>
+					<span class="control izquierdo icon-arrow-left"></span>
+					<span class="control derecho icon-arrow-right"></span>
 					<ul class="galeria-pdf">
 						<li class="item edicion-pdf">
 							<figure class="imagen-archivo">
 								<img src="http://placehold.it/60x110" alt="">
 							</figure>
-							<h4 class="titulo"> ultima edicion </h4>
-							<span class="fecha-archivo"> 12 de julio 2014</span>
+							<div class="contenido">
+								<h4 class="titulo"> ultima edicion </h4>
+								<span class="fecha-archivo"> 12 de julio 2014</span>
+							</div>
 						</li>
 						<li class="item edicion-pdf">
 							<figure class="imagen-archivo">
 								<img src="http://placehold.it/60x110" alt="">
 							</figure>
-							<h4 class="titulo">Dia de edicion</h4>
-							<span class="fecha-archivo">11 de julio 2014</span>
+							<div class="contenido">
+								<h4 class="titulo">Dia de edicion</h4>
+								<span class="fecha-archivo">11 de julio 2014</span>
+							</div>
 						</li>
 						<li class="item edicion-pdf">
 							<figure class="imagen-archivo">
 								<img src="http://placehold.it/60x110" alt="">
 							</figure>
-							<h4 class="titulo">dia de edicion</h4>
-							<span class="fecha-archivo">10 de julio 2014</span>
+							<div class="contenido">
+								<h4 class="titulo">dia de edicion</h4>
+								<span class="fecha-archivo">10 de julio 2014</span>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -714,6 +725,9 @@
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 	<script>
+		var publicacionesPdf = 1;
+		var publicacionesPdfMax = 3;
+		var valorGaleriaPdf = 0;
 		$(document).ready(function(){
 		  $('.galeria').bxSlider();
 
@@ -723,6 +737,22 @@
 		  	var tabClass = $(this).data('tab');
 		  	$(".lomas").fadeOut("fast");
 		  	$("."+tabClass).fadeIn("fast");
+		  });
+
+		  $(".control.izquierdo").on("click",function(){
+		  	if(publicacionesPdf>1){
+		  		publicacionesPdf--;
+		  		valorGaleriaPdf = (((publicacionesPdf)*300)-300);
+		  		$(".galeria-pdf").animate({left: '-'+valorGaleriaPdf+'px'},1000);
+		  	}
+		  });
+
+		  $(".control.derecho").on("click",function(){
+		  	if(publicacionesPdf<publicacionesPdfMax){
+		  		publicacionesPdf++;
+		  		valorGaleriaPdf = (((publicacionesPdf)*300)-300);
+		  		$(".galeria-pdf").animate({left: '-'+valorGaleriaPdf+'px'},1000);
+		  	}
 		  });
 
 
