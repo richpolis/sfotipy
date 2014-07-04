@@ -1,46 +1,13 @@
+@import 'nib'
 @import 'normalize' 
 @import 'fonts'
 
-transition()
-	-webkit-transition arguments
-	-moz-transition arguments
-	-ms-transition arguments
-	-o-transition arguments
-	transition arguments
 
 box-sizing()
 	-webkit-box-sizing arguments
 	-moz-box-sizing arguments
 	box-sizing arguments
-
-border-radius()
-	-webkit-border-radius arguments
-	-moz-border-radius arguments
-	-ms-border-radius arguments
-	-o-border-radius arguments
-	border-radius arguments
-
-box-shadow()
-	-webkit-box-shadow arguments
-	-moz-box-shadow arguments
-	-ms-box-shadow arguments
-	-o-box-shadow arguments
-	box-shadow arguments
-
-transform()
-	-webkit-transform arguments
-	-moz-transform arguments
-	-ms-transform arguments
-	-o-transform arguments
-	transform arguments
-
-animation()
-	-webkit-animation arguments
-	-moz-animation arguments
-	-ms-animation arguments
-	-o-animation arguments
-	animation arguments
-
+	
 opacity(n)
 	opacity n
 	if support-for-ie
@@ -48,12 +15,29 @@ opacity(n)
 
 color_azul = blue
 color_azul_claro = aqua
+color_rojo = red
+color_gris = gray
 
 a
 	text-decoration none
 	
 body
 	font-size 16px 
+
+footer
+	background black
+	color white
+	& .secundario 
+		height 40px
+		padding-top 10px
+		padding-right 20px
+		& li > a
+			color white
+	& .navegador.principal
+		border none
+		& > ul li a
+			color white
+
 
 nav 
 	height 30px
@@ -136,16 +120,18 @@ nav
 
 .columna-2
 .columna-1
-	display inline-block
-	vertical-align top
+	//display inline-block
+	//vertical-align top
 	box-sizing border-box
 
 .columna-2
 	width 706px
+	float left
 
 .columna-1
 	width 316px
 	padding-left 0px
+	float right
 
 
 .container
@@ -155,6 +141,25 @@ nav
 	max-width 1028px
 	& > .header
 		padding 1em 1.35em
+
+.cargar-mas-notas
+	display block
+	height 30px
+	width 30px
+	border-radius 5px
+	content "+"
+	font-size 20px
+	color white
+	display inline-block
+	text-align center
+	line-height 30px
+	&.gris
+		background color_gris
+	&.rojo
+		background color_rojo
+	&.azul
+		background color_azul
+	
 
 .controles-videos
 	height 30px
@@ -178,7 +183,20 @@ nav
 	& .anterior 
 		text-align right
 	
-.control
+.categorias-videos
+	background transparent
+	border 1px solid gray
+	border-radius 5px
+	color gray
+	float right
+	font-size 16px
+	margin-right 20px
+	margin-top 10px
+	min-width 300px
+	padding 3px 5px
+	
+
+.control-video
 	position absolute
 	
 .siguiente
@@ -520,4 +538,15 @@ nav
 	
 .cargador
 	text-align right
-	margin 0px	
+	margin 0px
+	font-size 10px
+	padding-right 40px
+	font-weight bold
+	&:first-letter
+		text-transform uppercase
+	&.gris
+		color color_gris
+	&.rojo
+		color color_rojo
+	&.azul
+		color color_azul	
